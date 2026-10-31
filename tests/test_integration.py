@@ -42,6 +42,18 @@ def test_live_reader_cannot_write_even_with_readonly_disabled():
             conn.execute("UPDATE artefact.products SET stock_quantity=stock_quantity WHERE false")
 
 
+def test_live_promotion_does_not_stack_pix_and_unavailable_has_alternatives():
+    store = Store(Settings.load())
+    promo = store.products(Plan(route="hybrid", query="Ohana CK-20", available_only=False))
+    assert len(promo) == 1
+    assert promo[0]["final_price"] == "439.20" and promo[0]["pix_price"] == "439.20"
+    rows = store.products(Plan(route="catalog", query="Giannini GF-3D", available_only=False))
+    assert rows[0]["stock_quantity"] == 0
+    assert any(
+        r.get("alternative") and r["stock_quantity"] > 0 and r["status"] == "active" for r in rows
+    )
+
+
 def test_live_policy_retrieval_recovers_return_page():
     s = Settings.load()
     vectors, _ = Embeddings(s).embed(["Em quantos dias posso devolver uma compra online?"])

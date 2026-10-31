@@ -85,7 +85,19 @@ class Store:
                 )
             for key in ("price_brl", "final_price", "discount_percent"):
                 row[key] = money(row[key])
-        return rows
+        if (
+            rows
+            and not plan.available_only
+            and any(r["status"] != "active" or r["stock_quantity"] == 0 for r in rows)
+        ):
+            alternatives = self.products(Plan(route=plan.route, category=rows[0]["category"]))
+            original_ids = {r["product_id"] for r in rows}
+            rows.extend(
+                dict(r, alternative=True)
+                for r in alternatives[:3]
+                if r["product_id"] not in original_ids
+            )
+        return rows[:8]
 
     def policies(self, vector: list[float], query: str = "") -> list[dict]:
         encoded = "[" + ",".join(str(x) for x in vector) + "]"

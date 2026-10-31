@@ -83,7 +83,11 @@ def test_service_error_is_sanitized_and_stops_flow():
 
 
 def test_explicit_payment_question_cannot_skip_policy_lookup():
-    result = build("catalog").ask("Quanto custa o instrumento e quanto fica no PIX?")
+    model = SimpleNamespace(
+        plan=lambda q, h: (Plan(route="catalog", query="Yamaha C40"), event("interpretar")),
+        answer=lambda c: ("Resposta com evidências.", event("responder")),
+    )
+    result = build(model=model).ask("Quanto custa o Yamaha C40 e quanto fica no PIX?")
     assert result.route == "hybrid"
     assert [e.name for e in result.events] == [
         "validar",

@@ -8,6 +8,7 @@ from langgraph.graph import END, START, StateGraph
 
 from emporio.config import Settings
 from emporio.models import Event, Plan, Turn
+from emporio.policies import ambiguity_reply
 from emporio.provider import Embeddings, OpenRouterModel
 from emporio.store import Store
 
@@ -128,7 +129,18 @@ class Agent:
             plan, event = self.model.plan(state["question"], state["history"])
             if plan.route == "catalog" and POLICY_TERMS.search(state["question"]):
                 plan = plan.model_copy(
-                    update={"route": "hybrid", "policy_query": state["question"]}
+                    update={
+                        "route": "hybrid" if plan.query or plan.category else "policies",
+                        "policy_query": state["question"],
+                    }
+                )
+            if plan.route == "outside" and re.search(
+                r"alug.{0,35}(?:violin|instrument|viol[ãa]o|guitarra|teclado)",
+                state["question"],
+                re.IGNORECASE,
+            ):
+                plan = plan.model_copy(
+                    update={"route": "policies", "policy_query": state["question"]}
                 )
             return {"plan": plan, "events": state["events"] + [event]}
         except Exception:
@@ -175,6 +187,24 @@ class Agent:
     def respond(self, state: State) -> dict:
         start = time.perf_counter()
         route = state["plan"].route
+        caution = ambiguity_reply(state["question"], state["sources"])
+        if caution:
+            if state["products"]:
+                prices = []
+                for product in state["products"]:
+                    amount = product["final_price"].replace(".", ",")
+                    line = f"{product['name']}: R$ {amount}"
+                    if float(product["discount_percent"]) > 0:
+                        original = product["price_brl"].replace(".", ",")
+                        line += (
+                            f" (original R$ {original}; desconto {product['discount_percent']}%)"
+                        )
+                    prices.append(line)
+                caution = "No catálogo fornecido: " + "; ".join(prices) + ".\n\n" + caution
+            event = Event(
+                name="responder", duration_ms=round((time.perf_counter() - start) * 1000, 2)
+            )
+            return {"answer": caution, "events": state["events"] + [event]}
         if route in ("private", "outside", "clarify"):
             answer = {
                 "private": PRIVATE_REPLY,

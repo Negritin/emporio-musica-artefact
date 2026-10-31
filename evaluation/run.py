@@ -10,6 +10,16 @@ from emporio.agent import Agent
 from emporio.config import ROOT, Settings
 
 SCENARIOS = [
+    (
+        "15-promocao",
+        ["O Ohana CK-20 tem promoção? Posso somar o desconto do PIX? Quanto fica?"],
+        "hybrid",
+    ),
+    (
+        "16-indisponivel",
+        ["Vocês têm o Giannini GF-3D? Se estiver esgotado, quais alternativas têm?"],
+        "catalog",
+    ),
     ("01-catalogo", ["Quais opções de violões disponíveis custando até R$1000?"], "catalog"),
     ("02-endereco", ["Qual o endereço e o horário da loja aos sábados?"], "policies"),
     ("03-preco", ["Quanto custa o Takamine GD20?"], "catalog"),
