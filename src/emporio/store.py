@@ -1,5 +1,6 @@
 """Consultas parametrizadas com a identidade restrita do atendimento."""
 
+import re
 from contextlib import contextmanager
 from decimal import ROUND_HALF_UP, Decimal
 
@@ -86,7 +87,7 @@ class Store:
                 row[key] = money(row[key])
         return rows
 
-    def policies(self, vector: list[float]) -> list[dict]:
+    def policies(self, vector: list[float], query: str = "") -> list[dict]:
         encoded = "[" + ",".join(str(x) for x in vector) + "]"
         with self.connection() as conn:
             hits = conn.execute(
@@ -102,6 +103,8 @@ class Store:
                 return []
             # Recupero as páginas relacionadas para não omitir condições conflitantes.
             pages = {h["page"] for h in hits[:3]}
+            if re.search(r"whats|telefone|contato|e-?mail", normalize(query)):
+                pages.update((1, 2, 6))
             if 3 in pages:
                 pages.add(6)
             if 4 in pages:

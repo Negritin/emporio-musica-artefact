@@ -1,6 +1,6 @@
 # Sprint SDD 04 — Atendimento local e fluxo visível
 
-**Status:** em especificação · **Responsável:** Cleverson Madruga · **Dependências:** Sprint 03 e versão local inicial funcional.
+**Status:** em validação · **Responsável:** Cleverson Madruga · **Dependências:** Sprint 03 e versão local inicial funcional.
 
 ## Objetivo
 
@@ -29,3 +29,7 @@ Comandos de execução, testes, capturas ou transcrições sanitizadas e commit 
 ## Resultado
 
 Pendente de implementação e validação. Registrar em primeira pessoa os resultados e evidências reais.
+
+## Evidência intermediária
+
+Criei o chat local em Streamlit, com histórico por sessão, fontes recuperadas e eventos reais. Validei o envio de pedido individual e a limpeza da conversa com o AppTest. O servidor local respondeu HTTP 200 em `/_stcore/health`.

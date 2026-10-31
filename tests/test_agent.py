@@ -18,7 +18,7 @@ def build(route="hybrid", **overrides):
     )
     store = SimpleNamespace(
         products=lambda p: [{"name": "Instrumento"}],
-        policies=lambda v: [{"page": 3, "content": "Regra"}],
+        policies=lambda v, q="": [{"page": 3, "content": "Regra"}],
     )
     embeddings = SimpleNamespace(embed=lambda t: ([[0.0]], event("embedding")))
     return Agent(
@@ -80,6 +80,19 @@ def test_service_error_is_sanitized_and_stops_flow():
     assert "segredo" not in result.model_dump_json()
     assert [e.name for e in result.events] == ["validar", "interpretar", "catalogo"]
     assert result.events[-1].status == "erro"
+
+
+def test_explicit_payment_question_cannot_skip_policy_lookup():
+    result = build("catalog").ask("Quanto custa o instrumento e quanto fica no PIX?")
+    assert result.route == "hybrid"
+    assert [e.name for e in result.events] == [
+        "validar",
+        "interpretar",
+        "catalogo",
+        "embedding",
+        "politicas",
+        "responder",
+    ]
 
 
 def test_history_is_bounded_and_user_cannot_insert_system_role():

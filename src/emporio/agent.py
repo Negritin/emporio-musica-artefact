@@ -14,9 +14,15 @@ from emporio.store import Store
 PRIVATE_REQUEST = re.compile(
     r"\b(?:meu|minha)\s+(?:pedido|cadastro|rastreamento)|"
     r"\b(?:pedido|cliente)\s*(?:n[ºo°.]?\s*)?[#:]?\s*\d+|"
-    r"\b(?:cpf|telefone|email|e-mail|endereço)\s+(?:do|da)\s+cliente",
+    r"\b(?:cpf|telefones?|e-?mails?|endereços?)\s+(?:dos?|das?)\s+clientes?",
     re.IGNORECASE,
 )
+CREDENTIAL_REQUEST = re.compile(
+    r"(?:senha|chave|token).{0,50}(?:postgres|openrouter|api|banco)|"
+    r"(?:postgres|openrouter|api|banco).{0,50}(?:senha|chave|token)",
+    re.IGNORECASE,
+)
+POLICY_TERMS = re.compile(r"\bpix\b|parcel|\bvezes\b|promoç|desconto|\bfrete\b", re.IGNORECASE)
 PRIVATE_REPLY = (
     "Para proteger os dados do cliente, não consulto cadastros, status nem rastreamento "
     "de pedidos sem autenticação e autorização. Esta demonstração não tem essa etapa. "
@@ -101,6 +107,12 @@ class Agent:
         if not question or len(question) > self.settings.max_message_chars:
             reply = f"Envie uma pergunta com até {self.settings.max_message_chars} caracteres."
             status = "bloqueado"
+        elif CREDENTIAL_REQUEST.search(question):
+            reply = (
+                "Não compartilho credenciais ou detalhes de acesso aos serviços. "
+                "Posso ajudar com instrumentos e políticas da loja."
+            )
+            status = "bloqueado"
         elif PRIVATE_REQUEST.search(question):
             reply, status = PRIVATE_REPLY, "bloqueado"
         event = Event(
@@ -114,6 +126,10 @@ class Agent:
         start = time.perf_counter()
         try:
             plan, event = self.model.plan(state["question"], state["history"])
+            if plan.route == "catalog" and POLICY_TERMS.search(state["question"]):
+                plan = plan.model_copy(
+                    update={"route": "hybrid", "policy_query": state["question"]}
+                )
             return {"plan": plan, "events": state["events"] + [event]}
         except Exception:
             return self.failure(state, "interpretar", start)
@@ -148,7 +164,7 @@ class Agent:
             vectors, embedding_event = self.embeddings.embed([query])
             events.append(embedding_event)
             search_start = time.perf_counter()
-            sources = self.store.policies(vectors[0])
+            sources = self.store.policies(vectors[0], query)
             event = Event(
                 name="politicas", duration_ms=round((time.perf_counter() - search_start) * 1000, 2)
             )
