@@ -63,7 +63,7 @@ esperada para esse conjunto. Isso não equivale a uma taxa de acerto geral de 10
 | Instrumento esgotado | Indisponibilidade e alternativas da mesma categoria |
 
 Publiquei cinco transcrições em `examples/`, com data, commit do código avaliado, eventos,
-fontes e consumo informado. As outras conversas e rodadas anteriores estão em
+fontes e consumo informado. As outras conversas da rodada final estão em
 `evaluation/local/`, fora do Git. O resumo sem transcrições está em `conversas-resumo.json`.
 Não alterei as respostas dos exemplos para parecerem melhores.
 
