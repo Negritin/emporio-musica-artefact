@@ -1,6 +1,6 @@
 # Sprint SDD 03 — Agente fundamentado e fluxo rastreável
 
-**Status:** em especificação · **Responsável:** Cleverson Madruga · **Dependências:** Sprints 01 e 02; modelo e ferramenta de embeddings validados.
+**Status:** em validação · **Responsável:** Cleverson Madruga · **Dependências:** Sprints 01 e 02; modelo e ferramenta de embeddings validados.
 
 ## Objetivo
 
@@ -35,3 +35,7 @@ Código do grafo, testes, resultados sanitizados e transcrições de teste sem e
 ## Resultado
 
 Pendente de execução e validação. Registrar em primeira pessoa caminhos, evidências e limitações reais.
+
+## Evidência intermediária
+
+Implementei o grafo com validação, interpretação, catálogo, políticas e resposta. Validei a primeira consulta real de violões e corrigi a oferta de PIX sem recuperação da política no turno. No teste de seleção, o modelo mini classificou corretamente três rotas; o nano confundiu a pergunta híbrida. Mantive o mini configurável e iniciei a avaliação das conversas reais.
