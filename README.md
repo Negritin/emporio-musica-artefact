@@ -60,6 +60,8 @@ Os arquivos individuais de clientes, pedidos e itens de pedido ficam fora do Git
 opcionais na carga. Analisei os seis arquivos locais do desafio, mas o atendimento não usa
 as três tabelas privadas. Posso apontar outra pasta com `emporio prepare --data-dir CAMINHO`.
 Não preciso fornecer dados individuais ao avaliador para reproduzir o agente.
+Cada execução de preparação grava seu relatório em `.local/dados-validacao.json`, fora do
+Git. Os relatórios em `docs/` preservam as evidências da minha entrega.
 
 ### Conversar pelo terminal
 

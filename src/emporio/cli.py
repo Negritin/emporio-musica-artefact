@@ -54,11 +54,11 @@ def main() -> None:
             report = migrate_and_load(settings, args.data_dir)
             report["rag"] = index_policies(settings, args.data_dir / "políticas_da_loja.pdf")
             provision_reader(settings)
-            (ROOT / "docs").mkdir(exist_ok=True)
-            (ROOT / "docs/dados-validacao.json").write_text(
+            (ROOT / ".local").mkdir(exist_ok=True)
+            (ROOT / ".local/dados-validacao.json").write_text(
                 json.dumps(report, ensure_ascii=False, indent=2)
             )
-            print("Preparei o schema, a carga e o manual. Relatório: docs/dados-validacao.json")
+            print("Preparei o schema, a carga e o manual. Relatório: .local/dados-validacao.json")
             return
         from emporio.store import Store
 
