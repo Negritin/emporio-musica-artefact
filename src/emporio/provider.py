@@ -1,5 +1,6 @@
 """Integro geração via LangChain e embeddings pela API do OpenRouter."""
 
+import re
 import time
 
 import httpx
@@ -71,6 +72,28 @@ explique o resultado e proponha ajustar os critérios, sem inventar alternativas
 """
 
 
+# Filtro instruções evidentes no material recuperado como defesa adicional.
+# O modelo continua sem segredos nem ferramentas que possam alterar os dados.
+UNTRUSTED_INSTRUCTION = re.compile(
+    r"instru[çc][ãa]o\s+(?:priorit[áa]ria|de\s+sistema)|"
+    r"ignore\s+(?:todas|a\s+pergunta|as\s+instru|instru|previous)|"
+    r"responda\s+apenas|system\s+prompt|reveal\s+(?:the\s+)?(?:password|secret)",
+    re.IGNORECASE,
+)
+
+
+def safe_context(context: dict) -> dict:
+    sources = []
+    for source in context.get("policy_sources", []):
+        content = source["content"]
+        instruction = UNTRUSTED_INSTRUCTION.search(content)
+        if instruction:
+            content = content[: instruction.start()].strip()
+        if content:
+            sources.append(dict(source, content=content))
+    return dict(context, policy_sources=sources)
+
+
 def model_client(settings: Settings) -> ChatOpenRouter:
     return ChatOpenRouter(
         model=settings.model,
@@ -124,7 +147,9 @@ class OpenRouterModel:
         response = self.client.invoke(
             [
                 SystemMessage(content=RESPONDER),
-                HumanMessage(content=json.dumps(context, ensure_ascii=False, default=str)),
+                HumanMessage(
+                    content=json.dumps(safe_context(context), ensure_ascii=False, default=str)
+                ),
             ]
         )
         if not isinstance(response.content, str) or not response.content.strip():
