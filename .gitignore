@@ -1,0 +1,21 @@
+.env
+.env.*
+!.env.example
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+build/
+dist/
+.coverage
+htmlcov/
+# Avaliação completa local; apenas 3–5 conversas selecionadas vão para examples/.
+evaluation/local/
+# Fontes com dados individuais ficam disponíveis apenas para preparação local.
+Arquivos/*customers.csv
+Arquivos/*orders.csv
+Arquivos/*order_items.csv
+.local/
