@@ -1,0 +1,161 @@
+{
+  "data": "2026-10-31T19:56:15.929855-03:00",
+  "testes": [
+    {
+      "modelo": "openai/gpt-4.1-nano",
+      "pergunta": "Quais violões até R$1000 estão disponíveis?",
+      "rota_esperada": "catalog",
+      "plano": {
+        "route": "catalog",
+        "query": "",
+        "category": "Violões",
+        "max_price": 1000.0,
+        "min_price": null,
+        "available_only": true,
+        "policy_query": "",
+        "clarification": ""
+      },
+      "aprovado": true,
+      "evento": {
+        "name": "interpretar",
+        "status": "ok",
+        "duration_ms": 1704.28,
+        "model": "openai/gpt-4.1-nano",
+        "input_tokens": 521,
+        "output_tokens": 17,
+        "cost_usd": 5.89e-05,
+        "error": null
+      }
+    },
+    {
+      "modelo": "openai/gpt-4.1-nano",
+      "pergunta": "Qual o endereço da loja?",
+      "rota_esperada": "policies",
+      "plano": {
+        "route": "policies",
+        "query": "",
+        "category": "",
+        "max_price": null,
+        "min_price": null,
+        "available_only": true,
+        "policy_query": "Qual o endereço da loja?",
+        "clarification": ""
+      },
+      "aprovado": true,
+      "evento": {
+        "name": "interpretar",
+        "status": "ok",
+        "duration_ms": 1235.06,
+        "model": "openai/gpt-4.1-nano",
+        "input_tokens": 515,
+        "output_tokens": 17,
+        "cost_usd": 5.83e-05,
+        "error": null
+      }
+    },
+    {
+      "modelo": "openai/gpt-4.1-nano",
+      "pergunta": "Quanto custa o Yamaha C40 e posso pagar no PIX?",
+      "rota_esperada": "hybrid",
+      "plano": {
+        "route": "catalog",
+        "query": "Yamaha C40",
+        "category": "",
+        "max_price": null,
+        "min_price": null,
+        "available_only": true,
+        "policy_query": "",
+        "clarification": ""
+      },
+      "aprovado": false,
+      "evento": {
+        "name": "interpretar",
+        "status": "ok",
+        "duration_ms": 1256.43,
+        "model": "openai/gpt-4.1-nano",
+        "input_tokens": 521,
+        "output_tokens": 28,
+        "cost_usd": 6.33e-05,
+        "error": null
+      }
+    },
+    {
+      "modelo": "openai/gpt-4.1-mini",
+      "pergunta": "Quais violões até R$1000 estão disponíveis?",
+      "rota_esperada": "catalog",
+      "plano": {
+        "route": "catalog",
+        "query": "",
+        "category": "Violões",
+        "max_price": 1000.0,
+        "min_price": null,
+        "available_only": true,
+        "policy_query": "",
+        "clarification": ""
+      },
+      "aprovado": true,
+      "evento": {
+        "name": "interpretar",
+        "status": "ok",
+        "duration_ms": 920.95,
+        "model": "openai/gpt-4.1-mini",
+        "input_tokens": 521,
+        "output_tokens": 22,
+        "cost_usd": 0.0002436,
+        "error": null
+      }
+    },
+    {
+      "modelo": "openai/gpt-4.1-mini",
+      "pergunta": "Qual o endereço da loja?",
+      "rota_esperada": "policies",
+      "plano": {
+        "route": "policies",
+        "query": "",
+        "category": "",
+        "max_price": null,
+        "min_price": null,
+        "available_only": true,
+        "policy_query": "Qual o endereço da loja Empório da Música?",
+        "clarification": ""
+      },
+      "aprovado": true,
+      "evento": {
+        "name": "interpretar",
+        "status": "ok",
+        "duration_ms": 969.58,
+        "model": "openai/gpt-4.1-mini",
+        "input_tokens": 515,
+        "output_tokens": 25,
+        "cost_usd": 0.000246,
+        "error": null
+      }
+    },
+    {
+      "modelo": "openai/gpt-4.1-mini",
+      "pergunta": "Quanto custa o Yamaha C40 e posso pagar no PIX?",
+      "rota_esperada": "hybrid",
+      "plano": {
+        "route": "hybrid",
+        "query": "Yamaha C40",
+        "category": "",
+        "max_price": null,
+        "min_price": null,
+        "available_only": false,
+        "policy_query": "Qual o preço do violão Yamaha C40 e é possível pagar com PIX?",
+        "clarification": ""
+      },
+      "aprovado": true,
+      "evento": {
+        "name": "interpretar",
+        "status": "ok",
+        "duration_ms": 1050.36,
+        "model": "openai/gpt-4.1-mini",
+        "input_tokens": 521,
+        "output_tokens": 39,
+        "cost_usd": 0.0002708,
+        "error": null
+      }
+    }
+  ]
+}

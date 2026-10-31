@@ -1,6 +1,6 @@
 # Sprint SDD 02 — Dados confiáveis e políticas consultáveis
 
-**Status:** em especificação · **Responsável:** Cleverson Madruga · **Dependências:** Sprint 01; schema existente; arquivos locais; decisão sobre embeddings; publicação das fontes autorizada pelo responsável.
+**Status:** em validação · **Responsável:** Cleverson Madruga · **Dependências:** Sprint 01; schema existente; arquivos locais; decisão sobre embeddings; publicação das fontes autorizada pelo responsável.
 
 ## Objetivo
 
@@ -33,3 +33,7 @@ Migrações, scripts de carga, relatório sanitizado de integridade, resultados 
 ## Resultado
 
 Pendente de execução e validação. Registrar em primeira pessoa o que efetivamente fiz e as evidências reais.
+
+## Evidência intermediária
+
+Carreguei os seis CSVs e indexei o manual em 13 trechos de oito páginas. Reexecutei `emporio prepare`: a carga não duplicou registros e os embeddings idênticos foram reutilizados. Executei seis testes reais de integração, todos aprovados, incluindo recuperação da página de devolução e negação de dados individuais e escrita. A revisão das conversas reais continua nas Sprints 03 e 05.

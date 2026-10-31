@@ -1,0 +1,46 @@
+{
+  "tables": {
+    "categories": {
+      "rows": 9,
+      "nulls": {}
+    },
+    "products": {
+      "rows": 65,
+      "nulls": {}
+    },
+    "promotions": {
+      "rows": 25,
+      "nulls": {}
+    },
+    "customers": {
+      "rows": 50,
+      "nulls": {}
+    },
+    "orders": {
+      "rows": 20,
+      "nulls": {
+        "tracking_code": 12,
+        "estimated_delivery": 12,
+        "notes": 16
+      }
+    },
+    "order_items": {
+      "rows": 22,
+      "nulls": {}
+    }
+  },
+  "issues": [],
+  "notes": [
+    "Campos ausentes permanecem NULL; não inferi recebimento a partir da previsão.",
+    "Não há vigência por data nas promoções: is_active pertence ao snapshot.",
+    "Clientes e pedidos não são consultáveis pela identidade do atendimento."
+  ],
+  "rag": {
+    "pages": 8,
+    "chunks": 13,
+    "new_embeddings": 0,
+    "embedding_model": "openai/text-embedding-3-small",
+    "dimensions": 1536,
+    "usage": null
+  }
+}
