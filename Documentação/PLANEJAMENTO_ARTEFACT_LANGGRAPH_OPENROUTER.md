@@ -1,7 +1,7 @@
 # Empório da Música — planejamento do desafio Artefact
 
 > Documento de planejamento inicial | Atualizado em 31/10/2026  
-> Situação: decisões de produto alinhadas; arquitetura e sprints ainda serão detalhadas. Este documento não representa uma aplicação implementada.
+> Situação: preservei as decisões do planejamento; a implementação e a execução local estão descritas no README e nas fichas SDD.
 
 ## 1. Objetivo
 
@@ -100,13 +100,13 @@ As consultas de atendimento devem ser parametrizadas e limitadas a operações d
 
 O responsável determinou que dados individuais de clientes e pedidos só podem ser consultados com autenticação e autorização. Como a primeira versão não prevê autenticação, o agente deve bloquear a consulta de status, rastreamento e outros dados individuais e orientar o atendimento apropriado.
 
-Os seis arquivos podem ser carregados para modelagem no schema `artefact`, mas o agente público não pode consultar ou revelar dados individuais de clientes e pedidos sem autenticação e autorização. O responsável autorizou a publicação dos materiais fornecidos; credenciais e dados de outros projetos não devem ser expostos.
+Os seis arquivos podem ser carregados para modelagem no schema `artefact`, mas o agente de atendimento não pode consultar ou revelar dados individuais de clientes e pedidos sem autenticação e autorização. O responsável autorizou a publicação dos materiais fornecidos; credenciais e dados de outros projetos não devem ser expostos.
 
 ## 7. Políticas e RAG
 
 O manual fornecido possui oito páginas. A proposta é extrair o texto com referência de página e seção, separar trechos preservando o contexto das regras, gerar embeddings e armazená-los no pgvector. Na pergunta, recuperar trechos relevantes e fornecer ao modelo apenas as evidências necessárias. A resposta deve indicar fonte e página quando aplicável e reconhecer ausência ou conflito de informação.
 
-A escolha do modelo de embeddings deve considerar custo, compatibilidade com o pgvector e qualidade em português. Confirmar se o modelo escolhido está acessível pelo provedor pretendido; se exigir outra API ou execução local, documentar credenciais, custos e operação. A dimensão do vetor no banco deve corresponder ao modelo efetivamente utilizado.
+A escolha do modelo de embeddings considerou custo, compatibilidade com o pgvector e qualidade em português. Confirmar se o modelo escolhido está acessível pelo provedor pretendido; se exigir outra API ou execução local, documentar credenciais, custos e operação. A dimensão do vetor no banco deve corresponder ao modelo efetivamente utilizado.
 
 ### Ambiguidades para avaliação
 
@@ -167,12 +167,12 @@ As três a cinco conversas entregues devem ser transcrições reais, com cenári
 
 A estrutura final pode ser simplificada se um único README e poucos arquivos forem suficientes. Documentar o que for efetivamente implementado e verificado.
 
-## 12. Decisões pendentes antes das sprints
+## 12. Decisões registradas na execução
 
-1. Confirmar se o grafo aparece **ao final da resposta** ou **durante a execução**.
-2. Definir o valor de referência para gastos de execução e como o proprietário acompanhará o saldo.
-3. Validar modelos, embeddings e integração com uma prova curta.
-4. Confirmar o prazo exato e fuso horário de entrega informados no e-mail da Artefact.
+1. Exibo o caminho efetivamente percorrido ao final da resposta, em uma interface local.
+2. Limitei chamadas, histórico, tamanho e turnos; mostro o custo informado, sem prometer teto absoluto de cobrança. Não foi definido orçamento total fixo.
+3. Validei `gpt-4.1-mini` e embeddings `text-embedding-3-small` com 1.536 dimensões pelo OpenRouter.
+4. O responsável informou o prazo de 02/11/2026 às 00:00, interpretado no horário de Brasília. Não alterarei o repositório após esse limite.
 
 ## 13. Referências
 
@@ -181,4 +181,4 @@ A estrutura final pode ser simplificada se um único README e poucos arquivos fo
 - [OpenRouter — uso e cobrança](https://openrouter.ai/support)
 - [Supabase — pgvector](https://supabase.com/docs/guides/database/extensions/pgvector)
 
-Os arquivos originais do desafio e das políticas permanecem como fontes primárias do projeto. O schema `artefact` foi criado; ainda não há tabelas, aplicação ou testes implementados.
+Os arquivos originais do desafio e das políticas permanecem como fontes primárias do projeto. Implementei as tabelas, a indexação, o agente e as interfaces locais. Os resultados e limitações estão no README e em `docs/avaliacao.md`.

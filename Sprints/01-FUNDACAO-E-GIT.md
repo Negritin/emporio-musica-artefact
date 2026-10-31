@@ -1,6 +1,6 @@
 # Sprint SDD 01 — Fundação segura e repositório reproduzível
 
-**Status:** concluída · **Responsável:** Cleverson Madruga · **Dependências:** análise deste plano; acesso GitHub confirmado; prazo confirmado pelo responsável; data e horário exatos ainda não registrados.
+**Status:** concluída · **Responsável:** Cleverson Madruga · **Dependências:** análise deste plano; acesso GitHub confirmado; prazo registrado: 02/11/2026 às 00:00 em Brasília.
 
 ## Objetivo
 

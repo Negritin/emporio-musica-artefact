@@ -42,7 +42,7 @@ with st.sidebar:
         "Exemplos: “Violões até R$ 1.000”, “Qual o endereço?” ou “Posso devolver "
         "uma compra online?”."
     )
-    if st.button("Começar nova conversa", use_container_width=True):
+    if st.button("Começar nova conversa", width="stretch"):
         st.session_state.history = []
         st.session_state.turns = []
         st.rerun()
@@ -73,7 +73,7 @@ def details(turn: Turn):
                 for e in turn.events
             ],
             hide_index=True,
-            use_container_width=True,
+            width="stretch",
         )
         if turn.sources:
             pages = sorted({s["page"] for s in turn.sources})

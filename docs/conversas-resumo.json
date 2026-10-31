@@ -1,0 +1,15 @@
+{
+  "date": "2026-10-31T20:06:24.863512-03:00",
+  "code_commit": "9e9026102e51e1c87965613f34aa4215e428d5b5",
+  "model": "openai/gpt-4.1-mini",
+  "conversations": 16,
+  "turns": 17,
+  "transport_ok": 16,
+  "routes_ok": 16,
+  "reported_cost_usd": 0.00888204,
+  "calls_missing_cost": 0,
+  "input_tokens_reported": 30325,
+  "output_tokens_reported": 1138,
+  "median_seconds": 4.4,
+  "max_seconds": 8.59
+}
