@@ -84,6 +84,10 @@ Abro `http://127.0.0.1:8501`. A interface mostra as respostas e, em **Como chegu
 os eventos e trechos recuperados. O servidor fica ligado ao endereço local da máquina.
 A solução não depende de Vercel, deploy ou link público de aplicação.
 
+Abaixo mostro uma conversa no chat local sobre formas de pagamento e regras de reembolso.
+
+![Chat em Streamlit com uma pergunta sobre pagamentos e reembolso e a resposta do agente](docs/images/streamlit-chat.png)
+
 ## Por que tomei estas decisões
 
 **Framework e abordagem.** Escolhi um fluxo híbrido: consultas parametrizadas para dados
