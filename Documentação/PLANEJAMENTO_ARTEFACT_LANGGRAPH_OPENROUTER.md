@@ -1,7 +1,7 @@
 # Empório da Música — planejamento do desafio Artefact
 
 > Documento de planejamento inicial | Atualizado em 31/10/2026  
-> Situação: preservei as decisões do planejamento; a implementação e a execução local estão descritas no README e nas fichas SDD.
+> Situação: preservei as decisões do planejamento; a implementação e a execução local estão descritas no README e em `docs/avaliacao.md`.
 
 ## 1. Objetivo
 

@@ -6,7 +6,7 @@ armazenados no pgvector. Posso conversar pelo terminal ou pelo chat local em Str
 
 [Repositório público](https://github.com/Negritin/emporio-musica-artefact) ·
 [Arquitetura](docs/arquitetura.md) · [Dados e RAG](docs/dados-e-rag.md) ·
-[Avaliação](docs/avaliacao.md) · [Sprints](Sprints/00-PROJETO-SDD-ARTEFACT.md)
+[Avaliação](docs/avaliacao.md)
 
 ## Como executar
 
@@ -190,8 +190,8 @@ Também incluiria integração real de atendimento somente com confirmação de 
 
 ## Como utilizei IA no desenvolvimento
 
-Usei o Codex para ler o enunciado e o manual, comparar as exigências, organizar minhas
-Sprints SDD e auxiliar na implementação, revisão e testes. Defini o escopo e ajustei as
+Usei o Codex para ler o enunciado e o manual, comparar as exigências, organizar as etapas
+do desenvolvimento e auxiliar na implementação, revisão e testes. Defini o escopo e ajustei as
 decisões durante a conversa, incluindo a retirada da hospedagem e a restrição de pedidos.
 
 Não tratei o código sugerido como validação. Executei os comandos, comparei respostas

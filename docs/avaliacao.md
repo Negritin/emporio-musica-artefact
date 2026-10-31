@@ -19,9 +19,9 @@ ARTEFACT_RUN_INTEGRATION=1 pytest -q -m integration
 python evaluation/run.py
 ```
 
-Os resultados finais dos comandos e a conferência de reprodução estão registrados no
-encerramento das Sprints 04 e 05. Os testes sem integração não chamam APIs. Os testes com
-integração usam as credenciais locais e podem gerar custo.
+Registrei os resultados finais nesta avaliação e a conferência da cópia limpa em
+[reproducao-validacao.json](reproducao-validacao.json). Os testes sem integração não chamam
+APIs. Os testes com integração usam as credenciais locais e podem gerar custo.
 
 ## O que conferi
 
