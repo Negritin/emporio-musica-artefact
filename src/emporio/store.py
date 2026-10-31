@@ -41,6 +41,8 @@ class Store:
             prepare_threshold=None,
         ) as conn:
             conn.read_only = True
+            if conn.execute("SELECT current_user").fetchone()["current_user"] != "artefact_reader":
+                raise ValueError("Use a conexão restrita criada pelo comando prepare.")
             conn.execute("SET LOCAL statement_timeout='7s'")
             conn.execute("SET LOCAL search_path=artefact,extensions,pg_catalog")
             yield conn

@@ -54,6 +54,12 @@ def test_live_promotion_does_not_stack_pix_and_unavailable_has_alternatives():
     )
 
 
+def test_runtime_rejects_admin_connection_for_attendance():
+    with pytest.raises(ValueError, match="conexão restrita"):
+        with Store(Settings.load(admin=True)).connection():
+            pytest.fail("O administrador não pode ser usado no atendimento.")
+
+
 def test_live_policy_retrieval_recovers_return_page():
     s = Settings.load()
     vectors, _ = Embeddings(s).embed(["Em quantos dias posso devolver uma compra online?"])

@@ -59,4 +59,20 @@ def ambiguity_reply(question: str, sources: list[dict]) -> str | None:
             "com a loja como aplicar as duas regras ao caso, informando as datas de "
             "compra e recebimento. [Manual, p. 4 e 7]"
         )
+    if re.search(r"devol|arrepend", q) and 4 in pages and "7 (sete) dias" in text:
+        return (
+            "Para compras online, você pode solicitar devolução por arrependimento em até "
+            "7 dias corridos após receber o produto. O manual pede embalagem original, "
+            "ausência de sinais de uso e todos os acessórios e manuais. Confira se todos "
+            "esses itens estão presentes antes de solicitar. O reembolso ocorre na mesma "
+            "forma de pagamento em até 10 dias úteis, e o frete de devolução fica por conta "
+            "da loja. Entre em contato com o atendimento para iniciar o procedimento; "
+            "não abro solicitações ou faço estornos nesta demonstração. [Manual, p. 4]"
+        )
+    if re.search(r"\bcabos?\b|\bpalhetas?\b|\bpedais\b|\bamplificadores?\b", q) and 6 in pages:
+        return (
+            "A Empório da Música trabalha com instrumentos musicais e não comercializa "
+            "acessórios como cabos, palhetas, pedais e amplificadores. Posso ajudar a "
+            "encontrar um instrumento no catálogo. [Manual, p. 6]"
+        )
     return None

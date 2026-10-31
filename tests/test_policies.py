@@ -33,3 +33,10 @@ def test_warranty_uses_distinct_purchase_and_receipt_dates():
     answer = ambiguity_reply("Defeito depois de 45 dias?", sources)
     assert "após a compra" in answer and "recebimento" in answer
     assert "não concluo" in answer
+
+
+def test_return_policy_does_not_confirm_facts_the_customer_did_not_supply():
+    sources = [{"page": 4, "content": "Arrependimento em 7 (sete) dias"}]
+    answer = ambiguity_reply("Quero devolver, tenho embalagem e manuais.", sources)
+    assert "Confira" in answer and "acessórios" in answer
+    assert "você confirmou" not in answer and "online" in answer
