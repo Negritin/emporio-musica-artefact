@@ -1,6 +1,6 @@
 # Sprint SDD 04 — Atendimento local e fluxo visível
 
-**Status:** em validação · **Responsável:** Cleverson Madruga · **Dependências:** Sprint 03 e versão local inicial funcional.
+**Status:** concluída · **Responsável:** Cleverson Madruga · **Dependências:** Sprint 03 e versão local inicial funcional.
 
 ## Objetivo
 
@@ -8,11 +8,11 @@ Disponibilizar uma interface local simples para conversar com o agente, visualiz
 
 ## Critérios de aceite
 
-- [ ] Interface local simples permite enviar mensagens, acompanhar o processamento, ler respostas e compreender erros; a escolha de CLI, API ou interface local é justificada no README.
-- [ ] Fontes e páginas utilizadas e etapas efetivamente executadas podem ser consultadas; por padrão, o fluxo é exibido ao final da resposta.
-- [ ] Duração e métricas disponíveis são identificadas com honestidade; tokens e custos ausentes são indicados como não informados.
-- [ ] Credenciais não aparecem na interface nem nos logs; o agente usa a identidade de leitura limitada validada na Sprint 02 e não consulta dados individuais de clientes ou pedidos sem autenticação e autorização.
-- [ ] A execução local e suas dependências são documentadas e verificadas em ambiente limpo; limites de chamadas e tratamento de falhas são testados.
+- [x] Interface local simples permite enviar mensagens, acompanhar o processamento, ler respostas e compreender erros; a escolha de CLI, API ou interface local é justificada no README.
+- [x] Fontes e páginas utilizadas e etapas efetivamente executadas podem ser consultadas; por padrão, o fluxo é exibido ao final da resposta.
+- [x] Duração e métricas disponíveis são identificadas com honestidade; tokens e custos ausentes são indicados como não informados.
+- [x] Credenciais não aparecem na interface nem nos logs; o agente usa a identidade de leitura limitada validada na Sprint 02 e não consulta dados individuais de clientes ou pedidos sem autenticação e autorização.
+- [x] A execução local e suas dependências são documentadas e verificadas em ambiente limpo; limites de chamadas e tratamento de falhas são testados.
 
 ## Implementação planejada
 
@@ -28,7 +28,9 @@ Comandos de execução, testes, capturas ou transcrições sanitizadas e commit 
 
 ## Resultado
 
-Pendente de implementação e validação. Registrar em primeira pessoa os resultados e evidências reais.
+Entreguei a CLI e o chat Streamlit local com fontes, eventos reais, tokens e custos informados. Validei o envio de mensagem, o bloqueio de pedido individual e o reinício de sessão com AppTest. Também executei uma consulta real de endereço no chat: renderizei duas mensagens sem exceção. O endpoint local de saúde respondeu HTTP 200. Não há dependência de hospedagem.
+
+**Validação encerrada:** 2026-10-31T20:14:14-03:00.
 
 ## Evidência intermediária
 

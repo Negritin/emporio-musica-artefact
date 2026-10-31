@@ -1,9 +1,9 @@
 # Projeto SDD — Empório da Música · Desafio Artefact
 
 **Responsável:** Cleverson Madruga  
-**Situação:** em execução.  
+**Situação:** concluída; validação local e repositório público conferidos.  
 **Prazo:** 02/11/2026 às 00:00, interpretado em `America/Sao_Paulo` conforme o fuso do responsável. Encerrar alterações antes desse horário.  
-**Resultado existente:** schema `artefact` criado e confirmado no Supabase; conexão local e chave OpenRouter configuradas. A implementação foi iniciada; os resultados serão registrados nas fichas de cada sprint.
+**Resultado existente:** schema `artefact` criado e confirmado no Supabase; conexão local e chave OpenRouter configuradas. Entreguei tabelas, 13 trechos de políticas, agente, CLI e chat local; os resultados estão nas fichas e em docs/avaliacao.md.
 
 ## Objetivo
 
@@ -34,12 +34,12 @@ Construir e apresentar um protótipo Python de atendimento textual que consulte 
 
 ## Dependências e decisões
 
-- O responsável confirmou que estamos no prazo. Antes da entrega, registrar a data e o horário exatos do e-mail, com o fuso correspondente, sem presumir valores. Até lá, não é possível confirmar o momento de congelamento do repositório.
+- Registrei o prazo informado pelo responsável: 02/11/2026 às 00:00, horário de Brasília. Não alterarei o repositório após esse limite.
 - Definir limites de uso e acompanhar o saldo do OpenRouter. Limites da aplicação não garantem teto absoluto de cobrança.
-- Definir a exibição do grafo: ao final é a hipótese atual; acompanhamento durante a execução exige streaming e planejamento adicional.
+- Defini a exibição dos eventos ao final de cada resposta na interface local, conforme a simplificação registrada no README.
 - Comprovar acesso e limites efetivos de Supabase, OpenRouter e GitHub; não há hospedagem da aplicação no escopo.
 - A senha e chaves já foram expostas na conversa: coordenar rotação e atualização dos serviços dependentes antes da publicação. Não incluir valores nem rastros nos registros.
-- Testar modelos e embeddings com base em português, compatibilidade, custo e latência; não pressupor provedor, dimensão ou capacidades.
+- Validei modelos e embeddings em português, registrei latência e uso informado e selecionei gpt-4.1-mini e text-embedding-3-small (1.536 dimensões).
 
 ## Sequência e gestão
 
@@ -60,3 +60,7 @@ As cinco sprints obrigatórias têm aceite comprovado; a aplicação funciona lo
 ## Execução iniciada
 
 Iniciei a implementação em 2026-10-31T19:50:08-03:00. Registrei o prazo informado pelo responsável. As chamadas POST ao OpenRouter estão retornando 401; mantive a validação real pendente enquanto avanço no código.
+
+## Encerramento
+
+Concluí a validação em 2026-10-31T20:14:14-03:00. Entreguei as cinco sprints locais com evidências reais, repositório público e cinco conversas selecionadas. O prazo é 02/11/2026 às 00:00 em Brasília; encerrei antes desse limite. Não cronometrei tempo ativo por sprint: os horários do Git e dos relatórios são marcos verificáveis, e não uma medição de horas trabalhadas. O quadro do ClickUp foi criado e verificado, mas não sincronizei tarefas porque a lista não herdou os sete status exigidos pelo padrão; essa limitação não interfere nos arquivos e entregáveis do desafio.

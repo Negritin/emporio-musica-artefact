@@ -1,6 +1,6 @@
 # Sprint SDD 02 — Dados confiáveis e políticas consultáveis
 
-**Status:** em validação · **Responsável:** Cleverson Madruga · **Dependências:** Sprint 01; schema existente; arquivos locais; decisão sobre embeddings; publicação das fontes autorizada pelo responsável.
+**Status:** concluída · **Responsável:** Cleverson Madruga · **Dependências:** Sprint 01; schema existente; arquivos locais; decisão sobre embeddings; publicação das fontes autorizada pelo responsável.
 
 ## Objetivo
 
@@ -8,15 +8,15 @@ Preparar dados operacionais e políticas de forma reproduzível para consultas f
 
 ## Critérios de aceite
 
-- [ ] Importação registra contagens, tipos, nulos, duplicatas, relacionamentos e inconsistências dos seis CSVs; preserva identificadores e não altera dados de outros schemas. Os CSVs são usados na carga; o agente consulta o Supabase em execução, sem lê-los a cada pergunta.
-- [ ] Migrações e carga para `artefact` são reproduzíveis e seu comportamento em reexecução é documentado e verificado; clientes e pedidos individuais não ficam disponíveis ao agente público sem autenticação e autorização.
-- [ ] Consultas de catálogo e promoções são parametrizadas, restritas a campos necessários e somente leitura; cobrem categoria, preço, status e estoque.
-- [ ] A aplicação usa uma identidade de banco com permissões mínimas de leitura apenas para os objetos necessários; não usa credencial administrativa, service role nem acesso a clientes, pedidos ou outros schemas. Migrações e cargas usam uma conexão separada e restrita ao ambiente de preparação.
-- [ ] Testes com a identidade da aplicação verificam tanto o acesso permitido quanto a negação efetiva a tabelas de clientes, pedidos, outros schemas e operações de escrita; registrar eventuais limitações de permissões do provedor.
-- [ ] Valores representam o snapshot fornecido; `is_active` não comprova vigência por data e produtos indisponíveis ou descontinuados não são anunciados como disponíveis.
-- [ ] Manual extraído e segmentado por página e seção; gerar embeddings e armazená-los no pgvector do Supabase. A busca retorna trechos rastreáveis e o teste demonstra recuperação relevante em português e resposta sem evidência quando apropriado.
-- [ ] Modelo e dimensão de embeddings são compatíveis com pgvector e registrados; custos e acesso são verificados sem declarar valores inexistentes.
-- [ ] Casos de avaliação cobrem parcelamento ambíguo, não cumulatividade de PIX e promoção, contatos divergentes, frete no valor exato de R$ 500 e regras de defeito/garantia. O agente reconhece ausência ou conflito e não inventa interpretação nem elegibilidade individual quando faltarem fatos.
+- [x] Importação registra contagens, tipos, nulos, duplicatas, relacionamentos e inconsistências dos seis CSVs; preserva identificadores e não altera dados de outros schemas. Os CSVs são usados na carga; o agente consulta o Supabase em execução, sem lê-los a cada pergunta.
+- [x] Migrações e carga para `artefact` são reproduzíveis e seu comportamento em reexecução é documentado e verificado; clientes e pedidos individuais não ficam disponíveis ao agente público sem autenticação e autorização.
+- [x] Consultas de catálogo e promoções são parametrizadas, restritas a campos necessários e somente leitura; cobrem categoria, preço, status e estoque.
+- [x] A aplicação usa uma identidade de banco com permissões mínimas de leitura apenas para os objetos necessários; não usa credencial administrativa, service role nem acesso a clientes, pedidos ou outros schemas. Migrações e cargas usam uma conexão separada e restrita ao ambiente de preparação.
+- [x] Testes com a identidade da aplicação verificam tanto o acesso permitido quanto a negação efetiva a tabelas de clientes, pedidos, outros schemas e operações de escrita; registrar eventuais limitações de permissões do provedor.
+- [x] Valores representam o snapshot fornecido; `is_active` não comprova vigência por data e produtos indisponíveis ou descontinuados não são anunciados como disponíveis.
+- [x] Manual extraído e segmentado por página e seção; gerar embeddings e armazená-los no pgvector do Supabase. A busca retorna trechos rastreáveis e o teste demonstra recuperação relevante em português e resposta sem evidência quando apropriado.
+- [x] Modelo e dimensão de embeddings são compatíveis com pgvector e registrados; custos e acesso são verificados sem declarar valores inexistentes.
+- [x] Casos de avaliação cobrem parcelamento ambíguo, não cumulatividade de PIX e promoção, contatos divergentes, frete no valor exato de R$ 500 e regras de defeito/garantia. O agente reconhece ausência ou conflito e não inventa interpretação nem elegibilidade individual quando faltarem fatos.
 
 ## Implementação planejada
 
@@ -32,7 +32,9 @@ Migrações, scripts de carga, relatório sanitizado de integridade, resultados 
 
 ## Resultado
 
-Pendente de execução e validação. Registrar em primeira pessoa o que efetivamente fiz e as evidências reais.
+Validei e carreguei os seis CSVs no ambiente de desenvolvimento, preservei ausências e relações e indexei oito páginas em 13 trechos com pgvector. Reexecutei a carga sem duplicar as chaves e sem gerar novos embeddings da fonte idêntica. Testei a identidade de leitura, o bloqueio de tabelas privadas e a ausência de acesso a tabelas de outros schemas. Registrei os dados em docs/dados-validacao.json e docs/permissoes-validacao.json. Validei a recuperação dos trechos e as ambiguidades nas conversas reais.
+
+**Validação encerrada:** 2026-10-31T20:14:14-03:00.
 
 ## Evidência intermediária
 

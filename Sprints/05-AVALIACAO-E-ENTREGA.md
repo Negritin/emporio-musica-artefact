@@ -1,6 +1,6 @@
 # Sprint SDD 05 — Avaliação, documentação e entrega
 
-**Status:** em especificação · **Responsável:** Cleverson Madruga · **Dependências:** Sprints 01 a 03 para avaliação inicial; Sprint 04 para o aceite da interface local; prazo confirmado pelo responsável, com data e horário exatos a registrar antes da entrega.
+**Status:** concluída · **Responsável:** Cleverson Madruga · **Dependências:** Sprints 01 a 03 para avaliação inicial; Sprint 04 para o aceite da interface local; prazo registrado: 02/11/2026 às 00:00, Brasília.
 
 ## Objetivo
 
@@ -8,15 +8,15 @@ Comprovar a qualidade da solução e preparar uma entrega pública fiel ao enunc
 
 ## Critérios de aceite
 
-- [ ] Bateria final cobre catálogo, política, pergunta híbrida, fora de escopo, ambiguidade, bloqueio de consultas individuais de clientes e pedidos sem autenticação, tentativa de instrução maliciosa, falhas e eventos, além das ambiguidades do manual sobre parcelamento, contatos, frete e garantia; erros materiais foram corrigidos e revalidados.
-- [ ] README explica instalação, configuração sem credenciais, execução, testes, arquitetura, escolhas de modelo/retrieval/prompt, limitações conhecidas, o que eu faria com mais tempo, fontes, snapshot, suposições e uso de assistentes de IA no meu fluxo de trabalho, em português, primeira pessoa e linguagem natural.
-- [ ] Revisão final confirma código limpo e fácil de explicar: nomes, responsabilidades e decisões são claros, sem abstrações desnecessárias.
-- [ ] Avalio pelo menos dez conversas reais, variadas e sanitizadas, documentadas em Markdown no relatório local de avaliação; registro os resultados com a versão testada.
-- [ ] Seleciono três a cinco conversas reais dessa avaliação para o repositório público, conforme o limite do enunciado, incluindo ao menos uma não trivial com consulta ou política. As demais ficam como evidência local de teste, fora do Git, inclusive do histórico.
-- [ ] Repositório GitHub é público, seu histórico tem commits progressivos reais em português e primeira pessoa e não contém segredos, dados pessoais desnecessários; limpeza é verificada também no histórico.
-- [ ] Interface local funciona seguindo o README, e seus recursos, fontes e limitações estão descritos com honestidade.
-- [ ] Data e horário de entrega do e-mail foram conferidos; versão final, commit, testes, link e horário são registrados antes do prazo; nenhuma alteração após o prazo.
-- [ ] Preparo a resposta ao e-mail recebido da Artefact com o link do repositório público; o envio efetivo ocorrerá somente mediante instrução explícita do usuário.
+- [x] Bateria final cobre catálogo, política, pergunta híbrida, fora de escopo, ambiguidade, bloqueio de consultas individuais de clientes e pedidos sem autenticação, tentativa de instrução maliciosa, falhas e eventos, além das ambiguidades do manual sobre parcelamento, contatos, frete e garantia; erros materiais foram corrigidos e revalidados.
+- [x] README explica instalação, configuração sem credenciais, execução, testes, arquitetura, escolhas de modelo/retrieval/prompt, limitações conhecidas, o que eu faria com mais tempo, fontes, snapshot, suposições e uso de assistentes de IA no meu fluxo de trabalho, em português, primeira pessoa e linguagem natural.
+- [x] Revisão final confirma código limpo e fácil de explicar: nomes, responsabilidades e decisões são claros, sem abstrações desnecessárias.
+- [x] Avalio pelo menos dez conversas reais, variadas e sanitizadas, documentadas em Markdown no relatório local de avaliação; registro os resultados com a versão testada.
+- [x] Seleciono três a cinco conversas reais dessa avaliação para o repositório público, conforme o limite do enunciado, incluindo ao menos uma não trivial com consulta ou política. As demais ficam como evidência local de teste, fora do Git, inclusive do histórico.
+- [x] Repositório GitHub é público, seu histórico tem commits progressivos reais em português e primeira pessoa e não contém segredos, dados pessoais desnecessários; limpeza é verificada também no histórico.
+- [x] Interface local funciona seguindo o README, e seus recursos, fontes e limitações estão descritos com honestidade.
+- [x] Data e horário de entrega do e-mail foram conferidos; versão final, commit, testes, link e horário são registrados antes do prazo; nenhuma alteração após o prazo.
+- [x] Preparo a resposta ao e-mail recebido da Artefact com o link do repositório público; o envio efetivo ocorrerá somente mediante instrução explícita do usuário.
 
 ## Decisões técnicas a justificar no README
 
@@ -44,4 +44,6 @@ Relatório local de avaliação em Markdown com pelo menos dez conversas, comand
 
 ## Resultado
 
-Pendente de execução e validação. Registrar em primeira pessoa o que foi entregue, os testes realizados, os horários reais e as limitações remanescentes.
+Consolidei o README, minhas cinco decisões técnicas, as suposições, as limitações e o uso do Codex. Registrei 16 conversas reais localmente e selecionei cinco para examples/, sem editar as respostas. Executei Ruff, 24 testes locais e 10 integrações, todos aprovados. Clonei o repositório público em outra pasta, instalei as dependências numa venv nova, repeti os 24 testes sem integração, preparei os dados públicos e confirmei a consulta real do Takamine GD20 por R$2.199,00. Revisei o histórico para segredos e preparei a resposta de e-mail em docs/entrega-email.txt; não enviei o e-mail.
+
+**Validação encerrada:** 2026-10-31T20:14:14-03:00.

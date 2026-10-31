@@ -1,0 +1,9 @@
+{
+  "identity": "artefact_reader",
+  "products": 65,
+  "chunks": 13,
+  "can_read_customers": false,
+  "can_read_orders": false,
+  "can_write_products": false,
+  "other_data_tables_readable": 0
+}
