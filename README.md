@@ -167,6 +167,7 @@ Registrei mais de dez conversas reais em Markdown localmente e selecionei cinco 
 `evaluation/local/`, ignorado pelo Git. O script grava data, commit, rota, fontes, uso e
 transcrições sem editar as respostas. Os resultados finais estão em
 [docs/avaliacao.md](docs/avaliacao.md).
+Apresento datas no formato brasileiro, `DD/MM/AAAA`, e horários no fuso de Brasília.
 
 ## Custos e falhas
 

@@ -126,7 +126,7 @@ def main():
     folder = ROOT / "evaluation/local" / now.strftime("%Y%m%d-%H%M%S")
     folder.mkdir(parents=True)
     metadata = {
-        "date": now.isoformat(),
+        "date": now.strftime("%d/%m/%Y às %H:%M:%S (horário de Brasília)"),
         "model": settings.model,
         "commit": subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT).decode().strip(),
     }

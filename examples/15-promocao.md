@@ -1,6 +1,6 @@
 # Conversa real — 15-promocao
 
-Executei esta conversa em 2026-10-31T20:06:24.863512-03:00 com `openai/gpt-4.1-mini`.
+Executei esta conversa em 31/10/2026 às 20:06:24 (horário de Brasília) com `openai/gpt-4.1-mini`.
 Versão do código avaliada: `9e9026102e51e1c87965613f34aa4215e428d5b5`.
 Os valores refletem o snapshot fornecido no desafio.
 

@@ -1,5 +1,5 @@
 {
-  "data": "2026-10-31T19:56:15.929855-03:00",
+  "data": "31/10/2026 às 19:56:15 (horário de Brasília)",
   "testes": [
     {
       "modelo": "openai/gpt-4.1-nano",
